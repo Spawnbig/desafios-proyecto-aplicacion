@@ -1,0 +1,81 @@
+main{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body{
+    height: 98vh;
+    background: url('resources/fondo_DCI.png') center center;
+}
+
+.contenedor-login{
+    border-radius: 10px;
+    background-color: #36393F;
+    min-height: 350px;
+    height: 40%;
+    min-width: 800px;
+    width: 50%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.formulario{
+    grid-column: 1;
+}
+
+.qr {
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    align-content: center;
+}
+
+h2{
+    color: white;
+    text-align: center;
+    font-weight: 1000;
+}
+
+label{
+    color: white;
+    font-weight: 1000;
+    margin-left: 50px;
+}
+
+input{
+    width: 90%;
+    height: 30px;
+    margin-left: 50px;
+    color: white;
+    background-color: #242629;
+    border: none;
+    border-radius: 5px;
+}
+
+button{
+    height: 40px;
+    border: 0;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    background-color: #5865F2;
+    width: 91%;
+    margin-left: 50px;
+}
+
+img{
+    margin-left: auto;
+    height: 100%;
+}
+
+h4{
+    color: white;
+    text-align: center;
+    font-weight: 1000;
+    margin-left: auto;
+    margin-right: auto;
+}
