@@ -1,12 +1,12 @@
-package ufro.dci.services;
+package ufro.dci.intranet.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ufro.dci.models.LoginDTO;
-import ufro.dci.models.RegisterDTO;
-import ufro.dci.models.Rol;
-import ufro.dci.models.Usuario;
-import ufro.dci.repositories.UsuarioRepository;
+import ufro.dci.intranet.models.LoginDTO;
+import ufro.dci.intranet.models.RegisterDTO;
+import ufro.dci.intranet.models.Rol;
+import ufro.dci.intranet.models.Usuario;
+import ufro.dci.intranet.repositories.UsuarioRepository;
 
 import java.util.Optional;
 
@@ -51,13 +51,16 @@ public class UsuarioServices {
         // Verificar contraseña correcta
         if(!usuario.getContrasenna().equals(loginDTO.getContrasenna())){
             usuario.setIntentos(usuario.getIntentos()+1);
+            usuarioRepository.save(usuario);
             if (usuario.getIntentos() > 3) {
                 usuario.setBloqueado(true);
+                usuarioRepository.save(usuario);
                 throw new Exception("Exceso de intentos");
             }
             throw new Exception("Contraseña Incorrecta");
         }
         usuario.setIntentos(0);
+        usuarioRepository.save(usuario);
         return usuario.getRol();
     }
 }

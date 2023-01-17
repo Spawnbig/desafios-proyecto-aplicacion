@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login DCI</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href="@{/css/login.css}">
+</head>
+<body>
+    <main>
+        <div class="contenedor-login">
+            <div class="formulario">
+                <h2>Bienvenido a DCI!</h2> <br>
+                <form th:action="@{/api/login}" th:object="${loginDTO}" method="POST">
+                    <label>Correo Electrónico</label> <br> 
+                    <input type="text" th:field="*{correo}"><br><br>
+                    <label>Contraseña</label> <br> 
+                    <input type="password" th:field="*{contrasenna}" ><br><br><br>
+                    <input type="submit" value="Iniciar Sesión" class="submit-btn" />
+                </form>
+                <a th:href="@{/registrar}">
+                    <button class="btn-registrar">Registrar</button>
+                </a>
+            </div>
+            <div class="qr">
+                <img th:src="@{/images/qr.png}">
+                <h4>
+                    Iniciar Sesión <br> con Código QR
+                </h4>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
